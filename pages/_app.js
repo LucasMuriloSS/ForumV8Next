@@ -5,6 +5,7 @@ import '../styles/offcanvas.css'
 import { useEffect } from "react";
 
 
+
 function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
