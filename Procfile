@@ -1,1 +1,1 @@
-web: export NODE_ENV=dev node server.js
+web: npm run dev
