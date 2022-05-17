@@ -18,7 +18,7 @@ function Profile(){
                         <div className="card">
                             <div className="card-body">
                                 <div className="d-flex flex-column align-items-center text-center">
-                                        <Image src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="150"></Image>
+                                        <Image src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="200" height= "200"></Image>
                                         <div className="mt-3">
                                         <h4>Lucas Murilo</h4>
                                         <p className="text-secondary mb-1">Elétrica</p>

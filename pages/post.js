@@ -31,7 +31,7 @@ function Post(){
                     <p>Lucas Murilo</p>
         
                     <figure className = {styles.figure}>
-                        <Image src="https://bootdey.com/img/Content/avatar/avatar7.png" className = {styles.foto_perfil}  alt="avatar"></Image> {/* className ="foto_perfil" */}
+                        <Image src="https://bootdey.com/img/Content/avatar/avatar7.png" width = "200" height= "200" className = {styles.foto_perfil}  alt="avatar"></Image> {/* className ="foto_perfil" */}
                         <figcaption className = {styles.figurecaption} >Elétrica</figcaption>
                     </figure>
         
