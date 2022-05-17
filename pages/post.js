@@ -1,6 +1,7 @@
 
 import Nav from "./navbar"
 import styles from '../styles/post.module.css'
+import Image from 'next/image'
 
 function Post(){
 
@@ -30,7 +31,7 @@ function Post(){
                     <p>Lucas Murilo</p>
         
                     <figure className = {styles.figure}>
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" className = {styles.foto_perfil}  alt="avatar"></img> {/* className ="foto_perfil" */}
+                        <Image src="https://bootdey.com/img/Content/avatar/avatar7.png" className = {styles.foto_perfil}  alt="avatar"></Image> {/* className ="foto_perfil" */}
                         <figcaption className = {styles.figurecaption} >Elétrica</figcaption>
                     </figure>
         

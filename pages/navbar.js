@@ -1,5 +1,5 @@
 import Signin from "./signin"
-
+import Link from 'next/link'
 
 function Nav(){
 
@@ -51,7 +51,7 @@ function Nav(){
 	    </nav>
 
         {/* MODAL */}
-                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                     <div className="modal-header">
@@ -77,13 +77,14 @@ function Nav(){
             Amigos
             <span className="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
             </a>
-            <a  className="nav-link"  href="eletrica">Elétrica</a>
-            <a className="nav-link" href="#">PowerTrain</a>
-            <a className="nav-link" href="#">Aerodinâmica </a>
-            <a className="nav-link" href="#">Subsistema</a>
-            <a className="nav-link" href="#">Subsistema</a>
-            <a className="nav-link" href="#">Subsistema</a>
-            <a className="nav-link" href="#">Subsistema</a>
+            
+            <Link href="eletrica"><a className="nav-link">Eletrica</a></Link>
+            <Link href="eletrica"><a className="nav-link">PowerTrain</a></Link>
+            <Link href="eletrica"><a className="nav-link">Aerodinâmica</a></Link>
+            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
+            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
+            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
+            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
         </nav>
       </div>
     </div>
