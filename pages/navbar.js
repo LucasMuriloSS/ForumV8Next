@@ -17,21 +17,33 @@ function Nav(){
         
             <div className="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <Link href="/">
                 <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/">Main Page</a>
+                    <a className="nav-link active" aria-current="page" >Main Page</a>
                 </li>
+                </Link>
+                
+                <Link href="#">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Notifications</a>
+                    <a className="nav-link" >Notifications</a>
                 </li>
+                </Link>
+                
+                <Link href="profile">
                 <li className="nav-item">
-                    <a className="nav-link" href="profile" >Profile</a>
+                    <a className="nav-link" >Profile</a>
                     
                 </li>
+                </Link>
+                
+                <Link href="#">
                 <li className="nav-item" >
 
                     <a type="button" className="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Login/Register</a>
                     
                 </li>
+                </Link>
+                
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
                     <ul className="dropdown-menu" aria-labelledby="dropdown01">
