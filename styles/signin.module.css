@@ -34,3 +34,12 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.i{
+  color:#333;
+  cursor: pointer;
+}
+.a:hover{
+
+  color:#333
+
+}

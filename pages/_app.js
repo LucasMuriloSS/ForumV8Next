@@ -2,6 +2,9 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/offcanvas.css'
 
+
+//npm run dev
+
 import { useEffect } from "react";
 
 

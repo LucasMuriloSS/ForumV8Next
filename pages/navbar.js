@@ -1,7 +1,17 @@
 import Signin from "./signin"
+import Register from "./Register"
 import Link from 'next/link'
 
 function Nav(){
+
+   function Open(){
+
+    console.log("ok")
+    return(
+        document.querySelector('.offcanvas-collapse').classList.toggle('open')
+        )
+
+   }
 
 
     return(
@@ -9,10 +19,14 @@ function Nav(){
     <div >
         <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
             <div className="container-fluid">
-            <a className="navbar-brand" href="#">V8 Racing Forum</a>
 
-            <button className="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+            <Link href="/">
+            
+            <a className="navbar-brand" >V8 Racing Forum</a>
+            </Link>
+
+            <button className="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation" onClick={Open}>
+                <span className="navbar-toggler-icon" ></span>
             </button>
         
             <div className="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
@@ -39,7 +53,7 @@ function Nav(){
                 <Link href="#">
                 <li className="nav-item" >
 
-                    <a type="button" className="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Login/Register</a>
+                    <a type="button" className="nav-link" data-bs-toggle="modal" data-bs-target="#Login">Login/Register</a>
                     
                 </li>
                 </Link>
@@ -62,8 +76,8 @@ function Nav(){
             </div>
 	    </nav>
 
-        {/* MODAL */}
-                <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {/* Login Modal */}
+                <div className="modal fade" id="Login" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                     <div className="modal-header">
@@ -74,13 +88,38 @@ function Nav(){
                         <Signin></Signin>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
+
+        
+                        {/* <button type="button" className="btn btn-primary" data-bs-target="#Register">Register</button> */}
+                        <a type="button" className="nav-link" data-bs-toggle="modal" data-bs-target="#Register">Register</a>
+                       
+                        
                     </div>
                     </div>
                 </div>
                 </div>
-      
+
+        {/* Register Modal */}
+        <div className="modal fade" id="Register" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Register</h5>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                        <Register></Register>
+                    </div>
+                    <div className="modal-footer">
+    
+                        {/* <button type="button" className="btn btn-primary" data-bs-target="#exampleModal">Login</button> */}
+                        <a type="button" className="nav-link" data-bs-toggle="modal" data-bs-target="#Login">Login</a>
+                       
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
       <div  className="nav-scroller bg-body shadow-sm">
         <nav className="nav nav-underline" aria-label="Secondary navigation">
             <a className="nav-link active" aria-current="page" href="#">Avisos

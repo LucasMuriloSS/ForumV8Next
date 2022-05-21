@@ -3,30 +3,8 @@ import Nav from "./navbar";
 import * as yup from "yup";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import Axios from "axios";
-import { useState } from 'react';
-import Image from 'next/image';
-import view from '../assets/view.png'
-import viewoff from '../assets/visibility.png'
 
-
-export default function Signin(){
-
-
-    const [passwordType, setPasswordType] = useState("password");
-    const [passwordInput, setPasswordInput] = useState("");
-    const handlePasswordChange =(evnt)=>{
-        setPasswordInput(evnt.target.value);
-    }
-    const togglePassword =()=>{
-      if(passwordType==="password")
-      {
-      setPasswordType("text")
-      return;
-      }
-      setPasswordType("password")
-    }
-
-    ////////
+export default function Register(){
 
     const handleLogin = (values) => {
         Axios.post("https://testeapi01.herokuapp.com/login", {
@@ -81,15 +59,17 @@ export default function Signin(){
 
             <Formik
             initialValues={{}}
-            onSubmit={handleLogin}
-            validationSchema={validationsLogin}>
+            onSubmit={handleRegister}
+            validationSchema={validationsRegister}>
             <Form>
 
-            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+            <h1 className="h3 mb-3 fw-normal">Please sign up</h1>
 
             <div className="form-floating">
+
                 <Field name="email" className="form-control" placeholder="Email" />
                 <label htmlFor="floatingInput">Email address</label>
+
                 <ErrorMessage
                 component="span"
                 name="email"
@@ -98,49 +78,35 @@ export default function Signin(){
             </div>
             <div className="form-floating">
 
-                
-
-                
-                <Field  type = {passwordType} onChange = {handlePasswordChange} value = {passwordInput} name="password" className="form-control" placeholder="Senha" />
-                
-                
+                <Field name="password" className="form-control" placeholder="Senha" />
                 <label htmlFor="floatingInput">Password</label>
 
-                
-               
-                
-                <div>
-
-                  <a className={styles.a}>
-
-                  <i className={styles.i} onClick={togglePassword}>
-                  { passwordType==="password"? <Image width= "25" height = "25" src={view}></Image> :<Image width= "25" height = "25" src={viewoff}></Image> }
-                  </i>
-
-                  </a>
-                </div>
-               
-  
-
-                
-                
-                
-                
-                <ErrorMessage component="span" name="password" className="form-error"/>
+                <ErrorMessage
+                component="span"
+                name="password"
+                className="form-error"/>
 
             </div>
-            
+            <div className="form-floating">
+
+                <Field name="confirmation" className="form-control" placeholder="Senha" />
+                <label htmlFor="floatingInput">Confirm Password</label>
+
+                <ErrorMessage
+                component="span"
+                name="confirmation"
+                className="form-error"/>
+
+            </div>
+
 
             <div className="checkbox mb-3">
-
-              
                 <label>
-                
                     <input type="checkbox" value="remember-me"/> Remember me 
                 </label> 
                 </div>
 
-                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
                 <p className="mt-5 mb-3 text-muted">&copy; 2022</p>
             
             </Form>
@@ -177,5 +143,4 @@ export default function Signin(){
         </div>
         </div>
     )
-    
 }

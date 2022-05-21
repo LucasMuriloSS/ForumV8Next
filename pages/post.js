@@ -28,17 +28,21 @@ function Post(){
 
             <article className = {styles.article}> {/* className="article shadow-sm" */}
                 <aside className = {styles.pessoa} > {/* className="pessoa" */}
-                    <p>Lucas Murilo</p>
+                    
         
                     <figure className = {styles.figure}>
+                    <p>Lucas Murilo</p>
+                    
                         <Image src="https://bootdey.com/img/Content/avatar/avatar7.png" width = "200" height= "200" className = {styles.foto_perfil}  alt="avatar"></Image> {/* className ="foto_perfil" */}
                         <figcaption className = {styles.figurecaption} >Elétrica</figcaption>
+                        <div>
+                    
+                        <span >25/05/2020</span>
+                    </div>
+                        
                     </figure>
         
-                    <div>
                     
-                        <span>25/05/2020</span>
-                    </div>
                     
                 </aside>
         
