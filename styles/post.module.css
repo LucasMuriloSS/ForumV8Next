@@ -1,8 +1,8 @@
-.padrao{
+/* .padrao{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 .article {
     width: 100%;
@@ -13,6 +13,7 @@
     border-radius: 10px;
     grid-template-columns: 20% 80%;
     grid-template-rows: auto;
+    
 }
 
 .pessoa {
@@ -24,31 +25,52 @@
     justify-content: center;
     justify-items: center;
     gap: 2rem;
+    
 }
-.foto_perfil { 
+/* .foto_perfil { 
 
     width: auto;
     
     max-width: 80%;
 
-}
-.figure{
+} */
+/* .figure{
     display: grid;
     height: auto;
     width: 100%;
     justify-content: center;
     justify-items: center;
-}
-.figcaption{
+} */
+/* .figcaption{
     display: grid;
     height: auto;
     width: 100%;
     justify-content: center;
     justify-items: center;
+} */
+
+
+
+.Imagem{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    
+    
+    
+
+}
+.perfil{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    
+
+   
 }
 
 
-@media screen and (max-width: 360px) { 
+@media screen and (max-width: 500px) { 
 
     
 
@@ -60,36 +82,47 @@
         border: 1px solid rgb(182, 172, 172);
         border-radius: 10px;
         grid-template-columns: auto;
-        grid-template-rows: 20% 80%;
+        grid-template-rows: 40% 60%;
+
+        /* background-color:blueviolet; */
     }
     
     .pessoa {
         width: 100%;
         height: auto;
         display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: repeat(4, auto);
-        justify-content: left;
-        justify-items: left;
+        margin-top: 0px;
+        grid-template-columns: 100px ;
+        grid-template-rows: repeat(3, auto);
+        /* justify-content: left;
+        justify-items: left; */
         gap: 1rem;
+        /* background-color:aquamarine; */
        
     }
     /* .figure{
-        display: grid;
-        height: 100%;
-        width: 100%;
-        justify-content: left;
-        justify-items: center;
+        
         background-color: blue;
         
     } */
 
-    .foto_perfil { 
-
-        width: 50px;
-        
-        height: 50px;
     
+    .Imagem{
+        
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        /* background-color: blueviolet; */
+        
+
+    }
+    
+    .perfil{
+        display: grid;
+        align-content: center;
+        
+
+        /* background-color: chartreuse; */
     }
     
     

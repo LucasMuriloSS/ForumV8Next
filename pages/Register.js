@@ -7,7 +7,7 @@ import Axios from "axios";
 export default function Register(){
 
     const handleLogin = (values) => {
-        Axios.post("https://testeapi01.herokuapp.com/login", {
+        Axios.post("http://localhost:3001/login", {
           email: values.email,
           password: values.password,
         }).then((response) => {
@@ -17,11 +17,11 @@ export default function Register(){
       };
     
       const handleRegister = (values) => {
-        Axios.post("https://testeapi01.herokuapp.com/register", {
+        Axios.post("http://localhost:3001/register", {
           email: values.email,
           password: values.password,
         }).then((response) => {
-          // alert(response.data.msg); tirado por mim
+        //  alert(response.data.msg); 
           console.log(response);
         });
       };
