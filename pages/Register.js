@@ -1,4 +1,3 @@
-
 import styles from '../styles/signin.module.css'
 import { NextResponse } from 'next/server'
 import * as yup from "yup";
@@ -84,4 +83,4 @@ export default function Register() {
       </div>
     </div>
   )
-          }
+}
