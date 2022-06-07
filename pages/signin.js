@@ -28,7 +28,7 @@ export default function Signin() {
 
   const handleLogin = async (values) => {
     console.log("logando")
-    await Axios.post('https://testeapi01.herokuapp.com/login', {
+    await Axios.post('https://apicadastrologin.herokuapp.com/login', {
       email: values.email,
       password: values.password,
     }).then((response) => {
