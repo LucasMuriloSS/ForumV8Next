@@ -1,12 +1,11 @@
 import styles from '../styles/signin.module.css'
-import { NextResponse } from 'next/server'
 import * as yup from "yup";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import Axios from "axios";
 
 export default function Register() {
   const handleRegister = (values) => {
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("https://testeapi01.herokuapp.com/register", {
       email: values.email,
       password: values.password,
     }).then((response) => {
