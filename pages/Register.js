@@ -1,8 +1,7 @@
-import styles from '../styles/signin.module.css'
-import { NextResponse } from 'next/server'
-import * as yup from "yup";
-import { ErrorMessage, Formik, Form, Field } from "formik";
 import Axios from "axios";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import * as yup from "yup";
+import styles from '../styles/signin.module.css';
 
 export default function Register() {
   const handleRegister = (values) => {
@@ -11,7 +10,7 @@ export default function Register() {
       password: values.password,
     }).then((response) => {
       alert(response.data.message);
-      if(response.data.status === "success"){
+      if (response.data.status === "success") {
         // redirecionar para home
       }
     });
@@ -37,7 +36,7 @@ export default function Register() {
       <div className={styles.formSignin}>
         <main className="form-signin">
           <Formik
-            initialValues={{email: "", password: "", confirmation: ""}}
+            initialValues={{ email: "", password: "", confirmation: "" }}
             onSubmit={handleRegister}
             validationSchema={validationsRegister}>
             {
@@ -45,7 +44,7 @@ export default function Register() {
                 <Form>
                   <h1 className="h3 mb-3 fw-normal">Please sign up</h1>
                   <div className="form-floating">
-                    <Field name="email" className="form-control" placeholder="Email" value={props.values.email}/>
+                    <Field name="email" className="form-control" placeholder="Email" value={props.values.email} />
                     <label htmlFor="floatingInput">Email address</label>
                     <ErrorMessage
                       component="span"
@@ -53,7 +52,7 @@ export default function Register() {
                       className="form-error" />
                   </div>
                   <div className="form-floating">
-                    <Field name="password" className="form-control" placeholder="Senha" type = "password" value={props.values.password}/>
+                    <Field name="password" className="form-control" placeholder="Senha" type="password" value={props.values.password} />
                     <label htmlFor="floatingInput">Password</label>
                     <ErrorMessage
                       component="span"
@@ -61,7 +60,7 @@ export default function Register() {
                       className="form-error" />
                   </div>
                   <div className="form-floating">
-                    <Field name="confirmation" className="form-control" placeholder="Senha"  type = "password" value={props.values.confirmation}/>
+                    <Field name="confirmation" className="form-control" placeholder="Senha" type="password" value={props.values.confirmation} />
                     <label htmlFor="floatingInput">Confirm Password</label>
                     <ErrorMessage
                       component="span"
