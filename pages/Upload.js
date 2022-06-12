@@ -1,14 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from 'next/image'
 import { parseCookies } from "nookies"
 import perfil from '../assets/perfil.png'
 
-export default function Upload({childToParent}){
+export default function Upload({onSubmit}){
 
-  //
   const [hasdata,sethasdata] = useState(false)
-
-  //
 
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
@@ -22,10 +19,12 @@ export default function Upload({childToParent}){
     }
   };
 
-  function updateImage(){
-      childToParent(hasdata)
-  }
+  useEffect(()=>{
+    
+    onSubmit(hasdata);
 
+  },[hasdata])
+  
   const uploadToServer = async (event) => {
 
     const body = new FormData();
@@ -64,9 +63,9 @@ export default function Upload({childToParent}){
         <input type="file" name="myImage" onChange={uploadToClient} />
        
         <button className="btn btn-primary" type="submit" onClick={uploadToServer}>Send to server</button>
-        {updateImage()}
+        {console.log("teste 2")}
         
-  
+      
       </div>
     </div>
   );

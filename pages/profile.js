@@ -16,6 +16,7 @@ function Profile() {
     const [hasedit, sethasedit] = useState(false);
 
     const recoverUserInfomation = async (value) => {
+        {console.log("Recupendo info")}
 
         const { 'authV8Login': token } = parseCookies()
 
@@ -83,15 +84,18 @@ function Profile() {
         }else{}
     }
 
-    function childToParent(childdata){
+    const childToParent = (childdata) =>{
         sethasedit(childdata);
     }
+    
     
     
 return (
         
         <div>
-            
+            {/*  */}
+         {console.log("entrou na div")}  
+          
    
             <Nav></Nav>
             
@@ -224,7 +228,7 @@ return (
                                                 </div>
                                                 <div className="modal-body">
                                                 
-                                                <Upload childToParent={childToParent} ></Upload>
+                                                <Upload onSubmit={childToParent} ></Upload>
                                                 
                                                 </div>
                                             </div>
