@@ -8,4 +8,13 @@ module.exports = {
   images:{
     domains :['bootdey.com','www.flaticon.com'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
 }

@@ -129,13 +129,13 @@ function Nav(){
             <span className="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
             </a>
             
-            <Link href="eletrica"><a className="nav-link">Eletrica</a></Link>
-            <Link href="eletrica"><a className="nav-link">PowerTrain</a></Link>
-            <Link href="eletrica"><a className="nav-link">Aerodinâmica</a></Link>
-            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
-            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
-            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
-            <Link href="eletrica"><a className="nav-link">Subsistema</a></Link>
+            <Link href="/eletrica"><a className="nav-link">Eletrica</a></Link>
+            {/* <Link href=""><a className="nav-link">PowerTrain</a></Link>
+            <Link href=""><a className="nav-link">Aerodinâmica</a></Link>
+            <Link href=""><a className="nav-link">Subsistema</a></Link>
+            <Link href=""><a className="nav-link">Subsistema</a></Link>
+            <Link href=""><a className="nav-link">Subsistema</a></Link>
+            <Link href=""><a className="nav-link">Subsistema</a></Link> */}
         </nav>
       </div>
     </div>

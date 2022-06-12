@@ -61,7 +61,7 @@ function Post(){
                 </aside>
         
                 <div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, hic veniam. Voluptate a labore, eaque ipsam consequatur quos qui doloremque commodi esse provident quod maxime facilis dignissimos! Omnis, placeat beatae.</p>
+                    <p>Estou com um problema na hora de carregar a bateria, alguém sabe qual o procedimento correto?</p>
                 </div>
             </article>
 
@@ -108,7 +108,7 @@ function Post(){
                 </aside>
         
                 <div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, hic veniam. Voluptate a labore, eaque ipsam consequatur quos qui doloremque commodi esse provident quod maxime facilis dignissimos! Omnis, placeat beatae.</p>
+                    <p>Você deve seguir o passo a passo que está aqui: www.link.com</p>
                 </div>
             </article>
 
@@ -155,7 +155,7 @@ function Post(){
                 </aside>
         
                 <div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, hic veniam. Voluptate a labore, eaque ipsam consequatur quos qui doloremque commodi esse provident quod maxime facilis dignissimos! Omnis, placeat beatae.</p>
+                    <p>Já usou o Multimetro para testar?</p>
                 </div>
             </article>
 
