@@ -57,7 +57,7 @@ export default function Upload({childToParent}){
       <div>
         
         <div className="d-flex flex-column align-items-center text-center">
-        <Image src={createObjectURL || perfil} className="rounded-circle" width={200} height={200} />
+        <Image src={createObjectURL || perfil} alt="avatar"className="rounded-circle" width={200} height={200} />
         </div>
         
         <h4></h4>

@@ -15,10 +15,6 @@ function Profile() {
     const [hasupdate, sethasupdate] = useState(false);
     const [hasedit, sethasedit] = useState(false);
 
-    const childToParent = (childdata) => {
-        sethasedit(childdata);
-    }
-
     const recoverUserInfomation = async (value) => {
 
         const { 'authV8Login': token } = parseCookies()
@@ -84,11 +80,11 @@ function Profile() {
             
             return <Image src={"data:image/jpg;base64,"+result} alt="Admin" id="avatar" className="rounded-circle" width="200" height="200"></Image>
             
-        }else{
-           
+        }else{}
+    }
 
-        }
-
+    function childToParent(childdata){
+        sethasedit(childdata);
     }
     
     
