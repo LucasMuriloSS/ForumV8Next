@@ -22,7 +22,7 @@ function Profile() {
 
         if (token) {
 
-            await Axios.get('http://localhost:3001/profile', {
+            await Axios.get('https://apicadastrologin.herokuapp.com/profile', {
                 params: {
                     token: token
                 }
@@ -55,7 +55,7 @@ function Profile() {
 
         const { 'authV8Login': token } = parseCookies()
         
-        await Axios.post('http://localhost:3001/edit', {
+        await Axios.post('https://apicadastrologin.herokuapp.com/edit', {
             name: values.name,
             phone: values.phone,
             mobile: values.mobile,
