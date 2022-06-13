@@ -12,8 +12,9 @@ function Profile() {
 
     const user = useContext(AuthContext)
 
-    const [hasupdate, sethasupdate] = useState(false);
-    const [hasedit, sethasedit] = useState(false);
+    const [hasedit, sethasedit] = useState(false);// atualizado quando tem uma edição nas informações
+    const [hasupdate, sethasupdate] = useState(false);// usado para atualizar a page
+    
 
     const recoverUserInfomation = async (value) => {
         {console.log("Recupendo info")}
@@ -27,7 +28,8 @@ function Profile() {
                     token: token
                 }
             }).then((res) => {
-                user.email = res.data.email // tem que ser user.email
+                // recebe os dados da api e passa para user
+                user.email = res.data.email 
                 user.name = res.data.name
                 user.phone = res.data.phone
                 user.mobile = res.data.mobile
@@ -49,11 +51,11 @@ function Profile() {
         
         recoverUserInfomation()
            
-    },[hasedit])
+    },[hasedit])//quando houver uma mudança no estado de hasedit useEffect é acionado e atualiza as informações
 
     const SaveEdit = async (values) => {
 
-        const { 'authV8Login': token } = parseCookies()
+        const { 'authV8Login': token } = parseCookies()//verifica se existe um token com esse nome 
         
         await Axios.post('https://apicadastrologin.herokuapp.com/edit', {
             name: values.name,
@@ -75,7 +77,7 @@ function Profile() {
     }
 
     function avatar(){
-
+        //usado para converter o buffer da imagem para base 64 e depois mostra-lá na tela
         if(user.image != null){
             const result = Buffer.from(user.image).toString('base64')
             
@@ -85,6 +87,7 @@ function Profile() {
     }
 
     const childToParent = (childdata) =>{
+        //função para receber informações de <Update> e ver se houve alteração na imagem
         sethasedit(childdata);
     }
     
@@ -93,8 +96,8 @@ function Profile() {
 return (
         
         <div>
-            {/*  */}
-         {console.log("entrou na div")}  
+            
+         
           
    
             <Nav></Nav>
