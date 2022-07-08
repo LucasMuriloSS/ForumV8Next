@@ -17,8 +17,7 @@ function Profile() {
     
 
     const recoverUserInfomation = async (value) => {
-        {console.log("Recupendo info")}
-
+        
         const { 'authV8Login': token } = parseCookies()
 
         if (token) {
@@ -39,8 +38,7 @@ function Profile() {
                     sethasupdate(false)}
                 else{
                     sethasupdate(true)}
-                
-                
+                      
             })
         }else{  
            Router.push('/')       
@@ -50,7 +48,7 @@ function Profile() {
     useEffect(() => {
         
         recoverUserInfomation()
-           
+         
     },[hasedit])//quando houver uma mudança no estado de hasedit useEffect é acionado e atualiza as informações
 
     const SaveEdit = async (values) => {
@@ -96,7 +94,7 @@ function Profile() {
 return (
         
         <div>
-            
+           
          
           
    

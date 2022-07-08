@@ -9,10 +9,4 @@ type User = {
     // avatar_url: string;
 }
 
-// type AuthContextType = {
-//     isAuthenticated: boolean;
-//     user: User;
-   
-//   }
-
 export const AuthContext = createContext({} as User)

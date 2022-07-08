@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.css'
 import Nav from './navbar'
-
+import Footer from './footer'
 
 export default function Home() {
   return (
@@ -117,6 +117,7 @@ export default function Home() {
 		</div>
 
 	  </main>
+	  <Footer></Footer>
     </div>
     
 

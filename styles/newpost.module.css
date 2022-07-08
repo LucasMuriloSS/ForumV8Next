@@ -1,0 +1,21 @@
+.Botton{
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 50px 50px;
+    grid-gap: 520px;
+    
+    
+}
+.Text{
+    
+    width: 800px;
+    height: 200px;
+    
+    
+}
+.Title{
+    width: 400px;
+    
+    
+}

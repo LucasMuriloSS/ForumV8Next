@@ -1,6 +1,6 @@
 
-import Nav from "./navbar"
-import styles from '../styles/post.module.css'
+import Nav from "../navbar"
+import styles from '../../styles/post.module.css'
 import Image from 'next/image'
 
 function Post(){
