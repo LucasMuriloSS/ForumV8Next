@@ -1,17 +1,63 @@
 import Signin from "./signin"
 import Register from "./Register"
 import Link from 'next/link'
+import { parseCookies } from "nookies"
+import Axios from "axios";
+import { Fragment, useContext, useEffect, useState, useSyncExternalStore, React ,Render} from 'react'
 
-function Nav(){
+function Nav({loaded}){
 
-   function Open(){
+    const [notifications,setnotifications] = useState([]);
 
-    console.log("ok")
+    function Open(){
+
     return(
         document.querySelector('.offcanvas-collapse').classList.toggle('open')
         )
 
    }
+ 
+   const getnotifications = async (values) => {
+    const { 'authV8Login': token } = parseCookies()
+
+    if(token && loaded == true){
+
+
+        await Axios.get('http://localhost:3001/notifications',{
+            params:{
+                token:token
+            }
+        }).then((res)=> {
+
+            setnotifications(res.data)
+    
+        })
+    }
+
+    return
+
+   }
+
+   const deletenotifications = async (values) => {
+
+    const { 'authV8Login': token } = parseCookies()
+
+    if(token){
+
+        await Axios.post('http://localhost:3001/delnotifications',{
+            token:token,
+            id:values
+        })
+
+    }
+
+   }
+
+    useEffect(() => {
+
+        getnotifications()
+     
+    },[loaded == false])
 
 
     return(
@@ -37,11 +83,20 @@ function Nav(){
                 </li>
                 </Link>
                 
-                <Link href="#">
-                <li className="nav-item">
-                    <a type="button" className="nav-link" >Notifications</a>
+                
+                <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Notifications</a>
+                    <ul className="dropdown-menu" aria-labelledby="dropdown01">
+
+                    {notifications.map((Info) =>
+
+                    <li><a className="dropdown-item" href={"http://localhost:3000/posts/"+Info.postID} onClick={()=> deletenotifications(Info._id)} >{Info.text}</a></li>
+
+                    )}
+                    
+                    </ul>
                 </li>
-                </Link>
+                
                 
                 <Link href="profile">
                 <li className="nav-item">

@@ -1,12 +1,17 @@
 import styles from '../styles/Home.module.css'
 import Nav from './navbar'
 import Footer from './footer'
+import { Fragment, useContext, useEffect, useState, useSyncExternalStore, React, Render } from 'react'
 
 export default function Home() {
+
+	const [load, setLoad] = useState(false)
+	
+
   return (
 
     <div>
-      <Nav></Nav>
+      <Nav loaded={true}></Nav>
       <main className="container">
 		  
 		<div className="d-flex align-items-center p-3 my-3 text-white bg-danger rounded shadow-sm">

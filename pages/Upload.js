@@ -35,7 +35,7 @@ export default function Upload({onSubmit}){
 
     //adiciona file e token no body e envia o body para api
 
-    const response = await fetch("https://apicadastrologin.herokuapp.com/saveImage", {
+    const response = await fetch("http://localhost:3001/saveImage", {
       method: "POST",
       body
     }).then((res)=>{

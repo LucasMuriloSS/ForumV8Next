@@ -5,7 +5,7 @@ import Axios from "axios";
 
 export default function Register() {
   const handleRegister = (values) => {
-    Axios.post("https://apicadastrologin.herokuapp.com/register", {
+    Axios.post("http://localhost:3001/register", {
       email: values.email,
       password: values.password,
     }).then((response) => {

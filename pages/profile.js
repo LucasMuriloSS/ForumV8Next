@@ -7,6 +7,7 @@ import { AuthContext } from '../contexts/AuthContext.tsx'
 import { ErrorMessage, Formik, Form, Field, setFieldValue } from "formik";
 import Upload from "./Upload"
 import Router from 'next/router'
+import Footer from './footer'
 
 function Profile() {
 
@@ -14,6 +15,7 @@ function Profile() {
 
     const [hasedit, sethasedit] = useState(false);// atualizado quando tem uma edição nas informações
     const [hasupdate, sethasupdate] = useState(false);// usado para atualizar a page
+    const [load, setLoad] = useState(false)
     
 
     const recoverUserInfomation = async (value) => {
@@ -22,7 +24,7 @@ function Profile() {
 
         if (token) {
 
-            await Axios.get('https://apicadastrologin.herokuapp.com/profile', {
+            await Axios.get('http://localhost:3001/profile', {
                 params: {
                     token: token
                 }
@@ -33,7 +35,12 @@ function Profile() {
                 user.phone = res.data.phone
                 user.mobile = res.data.mobile
                 user.image = res.data.image
+                user.data = res.data.data
                 
+                console.log(res)
+
+                setLoad(true)
+
                 if(hasupdate){ 
                     sethasupdate(false)}
                 else{
@@ -55,7 +62,7 @@ function Profile() {
 
         const { 'authV8Login': token } = parseCookies()//verifica se existe um token com esse nome 
         
-        await Axios.post('https://apicadastrologin.herokuapp.com/edit', {
+        await Axios.post('http://localhost:3001/edit', {
             name: values.name,
             phone: values.phone,
             mobile: values.mobile,
@@ -98,7 +105,7 @@ return (
          
           
    
-            <Nav></Nav>
+            <Nav loaded={load}></Nav>
             
             <div className="container mt-3">
                 <div className="main-body">
@@ -114,6 +121,7 @@ return (
                                             <h4>{user.name}</h4>
                                             <p className="text-secondary mb-1">Elétrica</p>
                                             <p className="text-muted font-size-sm">Itu-sp</p>
+                                            <p className="text-muted font-size-sm">Membro desde: {user.data}</p>
 
                                             <button className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#Upload" type="file">Edit Image</button>
                                         </div>
@@ -240,7 +248,9 @@ return (
                         </div>
                     </div>
                 </div>
-            </div>         
+            </div>     
+
+            <Footer></Footer>    
         </div>
 
 )
