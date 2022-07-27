@@ -45,7 +45,7 @@ function Post(){
             </div>
             <Formik
 
-                initialValues={{title : "",content :"",system:""}}
+                initialValues={{title : "",content :"",system:'eletrica'}}
                 onSubmit={SavePost}>
 
                 {props => (

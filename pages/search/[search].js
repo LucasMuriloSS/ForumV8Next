@@ -1,45 +1,53 @@
-import Nav from "./navbar"
+import Nav from "../navbar"
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '../styles/newpost.module.css'
-import { AuthContext } from '../contexts/AuthContext.tsx'
+import styles from '../../styles/newpost.module.css'
+import { AuthContext } from '../../contexts/AuthContext.tsx'
 import Axios from "axios";
 import { Fragment, useContext, useEffect, useState, useSyncExternalStore, React, Render } from 'react'
 
-import perfil from '../assets/perfil.png'
-import Footer from "./footer"
+import perfil from '../../assets/perfil.png'
+import Footer from "../footer"
+import {useRouter} from 'next/router'
+import axios from "axios"
 
 
-
-function Eletrica() {
+function Eletrica(data) {
 
     const user = useContext(AuthContext)
+    const router = useRouter()
 
     const [Post, setPost] = useState([]);// usado para atualizar a page
     const [hasupdate, sethasupdate] = useState(false);
     const [load, setLoad] = useState(false)
 
-    const recoverPostInfomation = async (value) => {
+    const {search} = router.query
 
-        await Axios.get('http://localhost:3001/Posts', {
-            params: {
-                System: "eletrica"
-            }
+    const SearchInformation = async (value) => {
 
-        }).then((res) => {
+        await axios.get("http://localhost:3001/search",
+
+        {
+            params: search
+        }
+        ).then((res)=>
+        {
             console.log(res.data)
             setPost(res.data)
-            setLoad(true)
 
         })
 
     }
 
-    useEffect(() => {
 
-        recoverPostInfomation()
+    useEffect(()=>{
 
-    }, [])
+        if(search != null){
+            SearchInformation()
+            console.log(search)
+        }
+        
+    },[search])
 
     function avatar(buffer){
         //usado para converter o buffer da imagem para base 64 e depois mostra-lá na tela
@@ -54,13 +62,6 @@ function Eletrica() {
         
     }
 
-    function post(){
-
-        
-
-        return <Post></Post>
-    }
-
     return (
 
         <div>
@@ -69,7 +70,7 @@ function Eletrica() {
 
             <div className="container">
 
-                <div className="d-flex align-items-center p-3 my-3 text-white bg-warning rounded shadow-sm">
+                {/* <div className="d-flex align-items-center p-3 my-3 text-white bg-warning rounded shadow-sm">
 
                     <div className={styles.Botton}>
                         <h1 className="h6 mb-0 text-black lh-1 ">Elétrica
@@ -80,10 +81,10 @@ function Eletrica() {
                         </Link>
 
                     </div>
-                </div>
+                </div> */}
 
                 <div className="my-3 p-3 bg-body rounded shadow-sm">
-                    <h6 className="border-bottom pb-2 mb-0">Atualizações recentes</h6>
+                    <h6 className="border-bottom pb-2 mb-0">{Post.length} resultados encontrados</h6>
 
                     {
                         Post.map((Info) =>
@@ -98,17 +99,21 @@ function Eletrica() {
                                 <Image src={avatar(Info.image)||perfil} className="rounded" width="50" height="50"></Image>
                                 </div>
 
-                                <Link href={`/posts/`+Info.id}>
+                                
+                                    
+                                    <Link href={`/posts/`+Info.id}>
                                     <a className="nav-link">
                                         <p className="pb-3 mb-0 small lh-sm border-bottom">
                                             <strong className="d-block text-gray-dark">{Info.title}</strong>
-                    
+                            
                                             {Info.name}
 
                                         </p>
-                                    </a>
-                                </Link>
-
+                                        </a>
+                                    </Link>
+                                        
+                                  
+                            
                             </div>
 
                         )}

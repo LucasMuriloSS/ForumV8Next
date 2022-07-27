@@ -14,7 +14,7 @@ function Post(){
     
     const router = useRouter()
 
-    const [Post, setPost] = useState([]);// usado para atualizar a page
+    const [Post, setPost] = useState([]);
     const [load, setLoad] = useState(false)
     const [Comments, setComments] = useState([]);
     
@@ -49,6 +49,7 @@ function Post(){
 
             setPost(res.data)
             setComments(res.data.comments)
+            
             setLoad(true)
         })
 
@@ -100,7 +101,7 @@ function Post(){
                         alt="avatar"></Image> 
                         
                         </div>
-                        <div className = {styles.figurecaption} >Elétrica</div>
+                        <div className = {styles.figurecaption} >{Info.system}</div>
                     </div>
     
             </aside>
@@ -154,13 +155,14 @@ function Post(){
                             alt="avatar"></Image> 
                             
                             </div>
-                            <div className = {styles.figurecaption} >Elétrica</div>
+                            <div className = {styles.figurecaption} >{Post.system}</div>
                         </div>
         
                 </aside>
         
                 <div>
                     <p>{Post.message}</p>
+                    <p>{"Postado em: "+ Post.data} </p>
                 </div>
             </article>
 

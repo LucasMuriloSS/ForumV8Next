@@ -8,6 +8,9 @@ import { Fragment, useContext, useEffect, useState, useSyncExternalStore, React 
 function Nav({loaded}){
 
     const [notifications,setnotifications] = useState([]);
+    const [searchInfo,setsearch] = useState('');
+
+    var marca = 'casa'
 
     function Open(){
 
@@ -15,9 +18,9 @@ function Nav({loaded}){
         document.querySelector('.offcanvas-collapse').classList.toggle('open')
         )
 
-   }
+    }
  
-   const getnotifications = async (values) => {
+    const getnotifications = async (values) => {
     const { 'authV8Login': token } = parseCookies()
 
     if(token && loaded == true){
@@ -59,6 +62,12 @@ function Nav({loaded}){
      
     },[loaded == false])
 
+    const handleChange = event => {
+        
+        setsearch(event.target.value)
+
+    };
+
 
     return(
 
@@ -98,7 +107,7 @@ function Nav({loaded}){
                 </li>
                 
                 
-                <Link href="profile">
+                <Link href="/profile">
                 <li className="nav-item">
                     <a type="button" className="nav-link" >Profile</a>
                     
@@ -123,8 +132,13 @@ function Nav({loaded}){
                 </li>
                 </ul>
                 <form className="d-flex">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+                <input className="form-control me-2" type="search" id='search' onChange={handleChange} value={searchInfo} placeholder="Search" aria-label="Search"></input>
+                {/* onChange={handleChange} value={searchInfo}  */}
+                <Link href={'/search/'+ searchInfo}>
+
                 <button className="btn btn-outline-success" type="submit">Search</button>
+                </Link>
+                
                 </form>
             </div>
 
@@ -184,7 +198,7 @@ function Nav({loaded}){
             <span className="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
             </a>
             
-            <Link href="/eletrica"><a className="nav-link">Eletrica</a></Link>
+            <Link href="/eletrica"><a className="nav-link">Elétrica</a></Link>
             {/* <Link href=""><a className="nav-link">PowerTrain</a></Link>
             <Link href=""><a className="nav-link">Aerodinâmica</a></Link>
             <Link href=""><a className="nav-link">Subsistema</a></Link>

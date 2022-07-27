@@ -36,8 +36,7 @@ function Profile() {
                 user.mobile = res.data.mobile
                 user.image = res.data.image
                 user.data = res.data.data
-                
-                console.log(res)
+                user.system = res.data.system
 
                 setLoad(true)
 
@@ -61,11 +60,14 @@ function Profile() {
     const SaveEdit = async (values) => {
 
         const { 'authV8Login': token } = parseCookies()//verifica se existe um token com esse nome 
+
+        console.log(values.system)
         
         await Axios.post('http://localhost:3001/edit', {
             name: values.name,
             phone: values.phone,
             mobile: values.mobile,
+            system: values.system,
             token: token
             
         }).then((res)=>{
@@ -119,9 +121,9 @@ return (
                                         
                                         <div className="mt-3">
                                             <h4>{user.name}</h4>
-                                            <p className="text-secondary mb-1">Elétrica</p>
+                                            <p className="text-secondary mb-1">{user.system}</p>
                                             <p className="text-muted font-size-sm">Itu-sp</p>
-                                            <p className="text-muted font-size-sm">Membro desde: {user.data}</p>
+                                            <p className="text-muted font-size-sm">Conta criada em: {user.data}</p>
 
                                             <button className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#Upload" type="file">Edit Image</button>
                                         </div>
@@ -203,7 +205,7 @@ return (
                                                 </div>
                                                 <div className="modal-body">
                                                     <Formik
-                                                        initialValues={{ name: user.name, phone: user.phone, mobile: user.mobile }}
+                                                        initialValues={{ name: user.name, phone: user.phone, mobile: user.mobile ,system: "Elétrica"}}
                                                         onSubmit={SaveEdit}>
 
                                                         {props => (
@@ -212,7 +214,11 @@ return (
                                                                 <Field name="name" className="form-control" placeholder="Nome completo" value={props.values.name} />
                                                                 <Field name="phone" className="form-control" placeholder="Phone" value={props.values.phone} />
                                                                 <Field name="mobile" className="form-control" placeholder="Mobile" value={props.values.mobile} />
-
+                                                                <Field as="select" id="system" className="form-select"value={props.values.system}>
+                                                                    <option value="Elétrica" onChange={(value)=> setFieldValue('system',value)}>Elétrica</option>
+                                                                    <option value="Powertrain" onChange={(value)=> setFieldValue('system',value)}>PowerTrain</option>
+                                                                </Field>
+                                                                
                                                                 <div className="modal-footer">
 
                                                                     <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" >Save</button>
